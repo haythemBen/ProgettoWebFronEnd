@@ -1,4 +1,4 @@
-import React from 'react' ;
+import React from 'react';
 import Posts from "../post/Posts";
 import Menu from "./Menu"
 const Home = () => (
@@ -9,13 +9,8 @@ const Home = () => (
                 <p className="lead">Post Recenti .</p>
             </div>
         </div>
-
-        <div className="container">
-            <Posts/>
-        </div>
-
-
+        <Posts />
     </div>
 );
 
-export default Home ;
+export default Home;
