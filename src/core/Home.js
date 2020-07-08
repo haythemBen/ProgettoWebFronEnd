@@ -1,6 +1,6 @@
 import React from 'react';
 import Posts from "../post/Posts";
-import Menu from "./Menu"
+
 const Home = () => (
     <div>
         <div className="jumbotron jumbotron-fluid">

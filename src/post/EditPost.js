@@ -144,20 +144,20 @@ class EditPost extends Component{
 
 
                     <div className=" col form-group form-row">
-                        <label className="text-muted">Foto Posto</label>
-                        <input onChange={this.handleChange("photo")} accept="image/*" type="file" className="form-control-file" id="formPostControlFiled"/>
-                    </div>
-                    <div className="form-group form-row">
+                        <label className="text-muted">Foto Posto </label>
                         <img
                             src={photoURL}
                             alt={this.state.name}
                             onError={img => (img.target.src = `${photoURL}`)}
-                            style={{width:'10%', height:'10%', objectFit:'cover'}} />
+                            style={{width:'10%', height:'10%', objectFit:'cover', margin:'10px'}}>
+                        </img>
+                        
+                        <input onChange={this.handleChange("photo")} accept="image/*" type="file" className="form-control-file" id="formPostControlFiled"/>
+                   
                     </div>
-
-
-                    <div className="card-footer text-muted">
-                        <button onClick={this.clickSubmit} className="btn btn-raised btn-primary" >Aggiorna</button>
+                   
+                    <div >
+                        <button onClick={this.clickSubmit} className="btn btn-primary btn-lg btn-block" >Aggiorna</button>
                     </div>
 
                 </div>

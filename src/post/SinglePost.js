@@ -39,7 +39,7 @@ class SinglePost extends Component {
 
 
     deleteConfirmed =()=>{
-        let answer = window.confirm("your post will be deleted definitely, you want to ontinue ?") ;
+        let answer = window.confirm("Il tuo post verrà eliminato definitivamente, vuoi continuare ?") ;
         if (answer){
             this.deletePost();
         }
@@ -112,23 +112,23 @@ class SinglePost extends Component {
         return (
 
             // react ask to have a unique key for rendered element
-            <div className="card text-white bg-dark mb-3" style={{margin: "10px"}}>
+            <div className="card text-white  mb-3" style={{ backgroundColor: '#3aafa9' }}>
 
 
                 <div className="card-header">
                     <h3 className="text-white">
                         <Link
                             to={`${posterId}`}
-                            className = "text-white">
+                            className = "text-dark">
                             {posterName}
                         </Link>
                     </h3>
-                    <p className="bg-primary">{new Date(post.created).toDateString()+ " at " +new Date(post.created).toLocaleTimeString()}</p>
+                    <p className="text-dark">{new Date(post.created).toDateString()+ " at " +new Date(post.created).toLocaleTimeString()}</p>
                 </div>
 
                 <div className="card-body">
                     <p className="card-title">{post.title}</p>
-                    <p className="card-text">{post.body}</p>
+                    <h4><p className="text-capitalize">{post.body}</p></h4>
 
                     <img className="rounded mx-auto d-block"
                         src={`${process.env.REACT_APP_API_URL}/post/photo/${post._id}`}
@@ -164,34 +164,17 @@ class SinglePost extends Component {
 
 
                     <div className="d-inline-block center-block ">
-                        {/* <Link
-                            to={`/`}
-                            className="btn btn-outline-success  mr-2 "> Home
-                        </Link> */}
-
-
-                        {/*
-                        The problem is that post.postedBy._id gets called two times:
-
-                        1. When the page first loads, before you have a chance to load data from the API.
-                        2. After the API request finishes and you call this.setState
-
-                        so i coorected the error ('postedBy._id ' is undefined , by verifying if post.postedBy already
-                        exist or not .
-                        link : https://www.freecodecamp.org/forum/t/react-cant-access-a-property-of-an-object-stored-in-state/138169
-
-                        */}
-
+            
                         {
                             isAuthenticated().user && post.postedBy && isAuthenticated().user._id === post.postedBy._id &&
                             <>
                                 <Link
                                     to={`/post/edit/${post._id}`}
-                                    className="btn btn-outline-primary  mr-2"> Aggiorna
+                                    className="btn btn-light center-block  mr-2 "> Aggiorna
                                 </Link>
                                 <Link
                                     onClick={this.deleteConfirmed}
-                                    className="btn btn-outline-danger center-block  mr-2 "> Elimina
+                                    className="btn btn-danger center-block  mr-2 "> Elimina
                                 </Link>
                             </>
                         }

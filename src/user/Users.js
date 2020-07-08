@@ -32,23 +32,11 @@ class Users extends Component{
                   // react ask to have a unique key for rendered element
                  <div className="card col-md-3" style={{margin: "40px"}} key={index}>
 
-
-                     {/*
-                     <img
-                     className="card-img-top"
-                     src={DefaultProfilePicture}
-                     alt={user.name}
-                     style={{width:'100%', height:'15vw', objectFit:'cover'}}/>
-                     */}
-
                      <img
                          src={`${process.env.REACT_APP_API_URL}/user/photo/${user._id}`}
                          onError={img => (img.target.src = `${DefaultProfilePicture}`)}
                          alt={user.name}
                          style={{width:'100%', height:'20vw', objectFit:'cover'}} />
-
-
-
 
                      <div className="card-body">
                      <Link
@@ -76,6 +64,7 @@ class Users extends Component{
         return (
             <div className="container"> {/*container to center elements into the page*/}
                 <h2 className="mt-5 mb-5">Utenti</h2>
+                <hr></hr>
 
                 {this.renderUsers(users)}
 

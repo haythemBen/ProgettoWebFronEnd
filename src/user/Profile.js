@@ -126,7 +126,7 @@ class Profile extends Component{
                     <div className="jumbotron jumbotron-fluid">
                         <div className="container">
                             <h1 className="display-4">Benvenuto(a) {isAuthenticated().user.name}</h1>
-                            <p className="lead">Visualizza il tuo profilo </p>
+                            <p className="lead">Visualizzi il tuo profilo </p>
                         </div>
                     </div>
                     

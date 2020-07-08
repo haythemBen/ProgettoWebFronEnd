@@ -1,6 +1,7 @@
 import React , {Component} from 'react' ;
 import {Link} from "react-router-dom";
 import DefaultProfilePicture from "../images/User_Avatar.png";
+import noImageAvailable from "../images/no-image-available.png"
 
 class ProfileTabs extends Component {
 
@@ -24,34 +25,35 @@ class ProfileTabs extends Component {
                             return (
 
                                 // react ask to have a unique key for rendered element
-                                <div className="card text-white  mb-3" style={{margin: "0px" ,backgroundColor:'#009999'}} key={index}>
+                                <div className="card text-white  mb-3" style={{margin: "0px" ,backgroundColor:' #3aafa9'}} key={index}>
 
 
                                     <div className="card-header">
-                                        <h3 className="text-white">
+                                        <h3 className="text-dark">
                                             <Link
                                                 to={`${posterId}`}
-                                                className = "text-white">
+                                                className = "text-dark">
                                                 {posterName}
                                             </Link>
                                         </h3>
-                                        <p className="bg-primary">{new Date(post.created).toDateString()+" at "+new Date(post.created).toLocaleTimeString() }</p>
+                                        <p className = "text-dark">{new Date(post.created).toDateString()+" at "+new Date(post.created).toLocaleTimeString() }</p>
                                     </div>
 
                                     <div className="card-body" >
                                         <p className="card-title">{post.title}</p>
-                                        <p className="card-text">{post.body.substring(0,250)}...</p>
+                                        <h4><p className="text-capitalize">{post.body.substring(0,250)}...</p></h4>
 
-                                        <img
+                                        <img className="rounded mx-auto d-block"
                                             src={`${process.env.REACT_APP_API_URL}/post/photo/${post._id}`}
-                                            onError={img => (img.target.style.display = 'none')}
+                                            onError={img => (img.target.src = `${noImageAvailable}`)}
+                                            /*onError={img => (img.target.style.display = 'none')}*/
 
-                                            style={{width:'50%', height:'50%', objectFit:'cover'}}
+                                            style={{width:'70%', height:'50%', objectFit:'cover'}}
                                         />
                                         <div><hr></hr></div>
                                         <Link
                                             to={`/post/${post._id}`}
-                                            className="btn btn-outline-info">Leggi di più
+                                            className="btn btn-light">Leggi di più
                                         </Link>
                                     </div>
                                 </div>

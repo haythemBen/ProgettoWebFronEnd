@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { comment, uncomment } from "./apiPost";
 import { isAuthenticated } from "../authentication";
-//import { isAuthenticated } from "../auth";
 import { Link } from "react-router-dom";
 import DefaultProfilePicture from "../images/User_Avatar.png";
 
@@ -21,7 +20,7 @@ class Comment extends Component {
     isValid = () => {
         const { text } = this.state;
         if (!text.length > 0 || text.length > 150) {
-            this.setState({ error: "comment is too short or too long" });
+            this.setState({ error: "Il commento è troppo breve o troppo lungo !" });
             return false;
         }
         return true;
@@ -30,7 +29,7 @@ class Comment extends Component {
     addComment = event => {
         event.preventDefault();
         if (!isAuthenticated()) {
-            this.setState({ error: "please sign in to write a comment" });
+            this.setState({ error: "Accedi per scrivere un commento !" });
             return false;
         }
 
@@ -41,7 +40,8 @@ class Comment extends Component {
             const postId = this.props.postId;
             const newcomment = { text: this.state.text };
 
-            comment(userId, token, postId, newcomment)                       // i added this
+            //comment ha bisgno del userId per stampare il suo nome
+            comment(userId, token, postId, newcomment)                       
                 .then(data => {
                     if (data.error) {
                         console.log(data.error)
@@ -60,12 +60,10 @@ class Comment extends Component {
 
 
     deleteConfirmed = comment => {
-        let answer = window.confirm("you want to delete this comment ?");
+        let answer = window.confirm("Vuoi eliminare questo commento?");
         if (answer) {
             this.deleteComment(comment);
         }
-
-
     };
 
     deleteComment = comment => {
@@ -73,7 +71,7 @@ class Comment extends Component {
         const token = isAuthenticated().token;
         const postId = this.props.postId;
 
-        uncomment(userId, token, postId, comment)                       // i added this
+        uncomment(userId, token, postId, comment)              
             .then(data => {
                 if (data.error) {
                     console.log(data.error)
@@ -103,9 +101,6 @@ class Comment extends Component {
                             <input onChange={this.handleChange} type="text" value={this.state.text} className="form-control text-center" placeholder="scrivere un commento" required />
                         </div>
                     </form>
-
-                    {/* {JSON.stringify(comments)} afficher le contenu du tableau des comments*/}
-
 
                     <hr />
 

@@ -114,6 +114,7 @@ class FindPeople extends Component{
 
 
                 <h2 className="mt-5 mb-5">Trovare persone</h2>
+                <hr></hr>
 
 
                 {this.renderUsers(users)}

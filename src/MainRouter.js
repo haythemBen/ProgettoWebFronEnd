@@ -17,7 +17,7 @@ import ResetPassword from "./user/ResetPassword";
 
 const MainRouter = () => (
     <div className="row no-gutters">
-        <div className="col-md-2">
+        <div className="col-md-2" >
             <Menu />
         </div>
         <div className="col-md-10">

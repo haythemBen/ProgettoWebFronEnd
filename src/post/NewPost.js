@@ -19,8 +19,6 @@ class NewPost extends Component{
 
 
     componentDidMount() {
-
-
         // to send the data( profile pict)  : use FormData api
         this.postData = new FormData() ;
         this.setState({user: isAuthenticated().user});
@@ -57,12 +55,8 @@ class NewPost extends Component{
         this.postData.set(name, value); //if the name is email, the value is the val of email , if photo , the val of photo
         this.setState({[name] : value, fileSize}); // write : fileSize:fileSize  or fileSize
 
-
-
         // clear the error when the user is writing
         this.setState({error : ""}) ;
-
-
     };
 
     clickSubmit = event => {
@@ -108,7 +102,7 @@ class NewPost extends Component{
                 </div>
             </div>
             
-            <div className="card text" style={{margin: "0px", backgroundColor:'#008080' ,opacity:"100%"}}>
+            <div className="card text" style={{margin: "0px", backgroundColor:'#ffffff' ,opacity:"100%"}}>
                 <div className="card-header">
                     <h4 className="mt-3">+ Nuovo Post :</h4>
                 </div>
@@ -128,7 +122,7 @@ class NewPost extends Component{
                     </div>
 
                     <div className="form-group form-row">
-                        <label className="text">Foto</label>
+                        <label className="text">Foto post</label>
                         <input onChange={this.handleChange("photo")} accept="image/*" type="file" className="form-control-file" id="formControlFile1"/>
                     </div>
 
@@ -158,30 +152,15 @@ class NewPost extends Component{
             return <Redirect to={`/user/${user._id}`}/> ;
         }
 
-
-
-
         return(
             <div className="container">
-
-                
-
-
-
                 {this.newPostForm(title, body)}
                 <div className="alert bg-warning" role="alert" style = {{display : error ? "":"none"}}>
                     {error}
                 </div>
 
-                
-
-
             </div>
-
-
-
         );
-
 
     }
 }

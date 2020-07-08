@@ -43,35 +43,35 @@ class Posts extends Component {
 
                         // react chiede un unico key per ogni elemento rendred
                         <div className="col-sm-6">
-                            <div className="card text-white mb-4 p-0" style={{ backgroundColor: '#008080' }} key={index}>
+                            <div className="card text-white mb-4 p-0" style={{ backgroundColor: ' #3aafa9' }} key={index}>
                                 <div className="card-header">
-                                    <h2 className="text-white">
+                                    <h2>
                                         <Link
                                             to={`${posterId}`}
-                                            className="text-white">
+                                            className="text-dark">
                                             {posterName}
                                         </Link>
                                     </h2>
                                     <h5>
-                                        <p className="bg-primary">{new Date(post.created).toDateString() + " at: " + new Date(post.created).toLocaleTimeString()}</p>
+                                        <p className="text-dark">{new Date(post.created).toDateString() + " at: " + new Date(post.created).toLocaleTimeString()}</p>
                                     </h5>
                                 </div>
 
                                 <div className="card-body">
                                     <p className="card-title">{"- " + post.title}</p>
-                                    <h4 className="card-text">{post.body.substring(0, 250)}...</h4>
+                                    <h4 className="text-capitalize">{post.body.substring(0, 250)}...</h4>
 
                                     <img className="rounded mx-auto d-block"
                                         src={`${process.env.REACT_APP_API_URL}/post/photo/${post._id}`}
                                         onError={img => (img.target.src = `${noImageAvailable}`)}
                                         //onError={img => (img.target.style.display = 'none')}
 
-                                        style={{ width: '80%', height: '50%', objectFit: 'cover' }}>
+                                        style={{ width: '80%', height: '12vw', objectFit: 'cover' }}>
                                     </img>
                                     <div><hr></hr></div>
                                     <Link
                                         to={`/post/${post._id}`}
-                                        className="btn btn-outline-info">Leggi di più
+                                        className="btn btn-light">Leggi di più
                                     </Link>
                                 </div>
                             </div>
