@@ -58,7 +58,7 @@ class SinglePost extends Component {
             else {
                 this.setState({deleted : true});
                 this.setState({redirected : true});
-                console.log('post deleted successfully');
+                console.log('post eliminato correttamente');
                 return true;
             }
         })
@@ -66,7 +66,7 @@ class SinglePost extends Component {
 
     updateComments = comments => {
         this.setState({ comments });
-        console.log('updateComments', comments);
+        console.log('aggiornaCommenti', comments);
     };
 
     likeToggle = () => {
@@ -104,7 +104,7 @@ class SinglePost extends Component {
 
     renderPost = post => {
         const posterId = post.postedBy ? `/user/${post.postedBy._id}` : "";
-        const posterName = post.postedBy ? post.postedBy.name : "Anonymous poster";
+        const posterName = post.postedBy ? post.postedBy.name : "Poster anonimo";
 
         //grab likes numeber
         const {like, likes} = this.state ;
@@ -146,7 +146,7 @@ class SinglePost extends Component {
                             <h3 onClick={this.likeToggle}>
                                 <i className="fa fa-thumbs-down"  style={{padding : '10px' ,borderRadius : '50%'}}
                                 ></i>
-                                unlike
+                                non Mipiace
                             </h3>
                         ):(
                             <h3 onClick={this.likeToggle}>
