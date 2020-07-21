@@ -27,6 +27,7 @@ class Posts extends Component {
                 this.setState({ posts: data });
             }
         });
+        
     };
 
 
@@ -82,7 +83,9 @@ class Posts extends Component {
 
 
                 })}
+                {JSON.stringify(posts)}
             </div>
+            
         )
 
     };

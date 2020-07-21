@@ -159,7 +159,7 @@ class SinglePost extends Component {
 
                     </div>
 
-
+                    
 
 
 
@@ -182,7 +182,7 @@ class SinglePost extends Component {
                     </div>
                 </div>
 
-
+                
             </div>
 
         );
@@ -226,8 +226,9 @@ class SinglePost extends Component {
                     postId={post._id}
                     comments={comments.reverse()}
                     updateComments = {this.updateComments} />
-
+{JSON.stringify(post)}
             </div>
+            
         );
     }
 
