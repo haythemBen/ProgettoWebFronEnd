@@ -12,10 +12,10 @@ Front_End using React for the social network API.
 REACT_APP_API_URL=http://localhost:8080
 ``` -->
 1- run : 
-    git clone https://github.com/haythemBen/ProgettoWebFronEnd.git
+* git clone https://github.com/haythemBen/ProgettoWebFronEnd.git
 
 2- use those commands in the root directory of the project :
-    $ cd ProgettoWebFronEnd
-    $ npm install
-    $ npm start
+* $ cd ProgettoWebFronEnd
+* $ npm install
+* $ npm start
 ```
