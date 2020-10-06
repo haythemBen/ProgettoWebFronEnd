@@ -17,18 +17,7 @@ const Menu = ({ history }) => (
         <h3 >
         <ul className="vertical-nav  pl-0" id="sidebar" >
             {/*style={{ 'list-style': 'none' }} per evitare i punti dei items della list*/}
-            <li className="nav-item" style={{ 'list-style': 'none' }}> 
-                <Link className="nav-link" style={isActive(history, "/")} to="/">
-                    {/* <i className="fas fa-home"></i> {" "} */}
-                    Home</Link>
-            </li>
-
-
-            <li className="nav-item" style={{ 'list-style': 'none' }}>
-                <Link className="nav-link" style={isActive(history, "/users")} to="/users">
-                    {/* <i className="fas fa-users"></i> {" "} */}
-                    Utenti</Link>
-            </li>
+            
 
             {!isAuthenticated() && (
                 <> {/* react fragment like div, to avoid error */}
@@ -47,7 +36,18 @@ const Menu = ({ history }) => (
 
             {isAuthenticated() && (
                 <>
+                    <li className="nav-item" style={{ 'list-style': 'none' }}> 
+                        <Link className="nav-link" style={isActive(history, "/")} to="/">
+                            {/* <i className="fas fa-home"></i> {" "} */}
+                            Home</Link>
+                    </li>
 
+
+                    <li className="nav-item" style={{ 'list-style': 'none' }}>
+                        <Link className="nav-link" style={isActive(history, "/users")} to="/users">
+                            {/* <i className="fas fa-users"></i> {" "} */}
+                            Utenti</Link>
+                    </li>
                     <li className="nav-item" style={{ 'list-style': 'none' }}>
                         {/* i used <a> because no need to navigate between components */}
 
